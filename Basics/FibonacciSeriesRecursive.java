@@ -1,3 +1,11 @@
+/*
+ * 
+ * Print the n-th number in a fibonacci series - recursive approach
+ * 
+ * Time complexity: O(n^2)
+ * Space Complexity: O(n) 
+ */
+
 import java.util.Scanner;
 public class FibonacciSeriesRecursive {
 
