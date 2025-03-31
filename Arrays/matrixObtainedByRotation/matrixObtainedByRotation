@@ -1,0 +1,54 @@
+class Solution {
+    public void reverse(int[] arr){
+        int left = 0;
+        int right = arr.length-1;
+
+        while(left < right){
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            right--;
+            left++;
+        }
+    }
+
+    public boolean isMatrixEquals(int[][] arr, int[][] target){
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<arr.length; j++){
+                if(arr[i][j] != target[i][j]) return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void transpose(int[][] arr){
+        for(int i=0; i<arr.length; i++){
+            for(int j=i; j<arr.length; j++){
+                int temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
+    }
+
+    public void rotate90deg(int[][] arr){
+        transpose(arr);
+
+        for(int i=0; i<arr.length; i++){
+            reverse(arr[i]);
+        }
+    }
+
+    public boolean findRotation(int[][] arr, int[][] target) {
+        
+        for(int i=0; i<4; i++){
+            if(isMatrixEquals(arr, target)) return true;
+            
+            rotate90deg(arr);
+        }
+
+        return false;
+    }
+}
