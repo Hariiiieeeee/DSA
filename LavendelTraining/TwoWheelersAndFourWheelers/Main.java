@@ -1,3 +1,6 @@
+// Given the total number of vehicles (totalVehicles) and the total number of wheels (totalWheels), find the number of two-wheelers and four-wheelers. Assumption: The vehicles are only two-wheelers (bikes) and four-wheelers (cars). Formula Used: Let: x = Number of two-wheelers y = Number of four-wheelers
+
+
 import java.util.Scanner;
 
 class Main{
