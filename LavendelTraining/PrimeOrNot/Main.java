@@ -1,5 +1,6 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
+
+
+// Write a Java program to check if a given number is prime or not.
 
 import java.util.Scanner;
 
