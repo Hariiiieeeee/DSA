@@ -1,3 +1,4 @@
+package Arrays.binarySearch;
 //Recursive approach for binary search
 
 //Time complexity: O(logn)

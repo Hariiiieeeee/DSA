@@ -1,3 +1,4 @@
+package Arrays.binarySearch;
 //Binary search looping method
 
 //Time complexity: O(logn)
