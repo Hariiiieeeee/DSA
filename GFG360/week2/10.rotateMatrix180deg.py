@@ -1,6 +1,6 @@
 class Solution:
-	def rotateMatrix(self, mat):
-		for i in mat:
+    def rotateMatrix(self, mat):
+        for i in mat:
             i.reverse()
             
         top = 0
@@ -12,3 +12,4 @@ class Solution:
             bottom-=1
             
         return mat
+
