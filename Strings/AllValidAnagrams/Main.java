@@ -34,7 +34,7 @@ class Solution {
             pcount[p.charAt(i) - 'a']++;
         }
 
-        if(Arrays.equals(scount, pcount)) res.add(0);
+        if(Arrays1.equals(scount, pcount)) res.add(0);
 
         int left = 0;
         int right = p.length();
@@ -46,7 +46,7 @@ class Solution {
             left++;
             right++;
 
-            if(Arrays.equals(scount, pcount)) res.add(left);
+            if(Arrays1.equals(scount, pcount)) res.add(left);
 
         }
 
