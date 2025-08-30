@@ -83,6 +83,7 @@ public class LinkedList {
             return;
         }
 
+        
         if(head.data == data){
             head = head.next;
             return;
@@ -130,6 +131,55 @@ public class LinkedList {
         System.out.println("Middle element: " + slow.data);
     }
 
+    static int sumOfNodes(){
+        if(head == null) return 0;
+
+        Node current = head;
+        int sum = 0;
+        while(current != null){
+            sum += current.data;
+            current = current.next;
+        }
+
+        return sum; 
+    }
+
+    static int count(){
+        if(head == null) return 0;
+
+        Node current = head;
+        int count = 1;
+
+        while(current != null){
+            count++;
+            current = current.next;
+        }
+
+        return count;
+    }
+
+    static void minMax(){
+        if(head == null) return;
+
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
+        Node current = head;
+
+        while(current != null){
+            int val = current.data;
+
+            if(val > max) max = val;
+
+            if(val < min) min = val;
+
+            current = current.next;
+        }
+
+        System.out.println("Min: " + min);
+        System.out.println("Max: " + max);
+    }
+
     public static void main(String[] args) {
         addFirst(1);
         addLast(2);
@@ -151,5 +201,17 @@ public class LinkedList {
 
         insert(1, 2);
         middle();
+
+        minMax();
+
+        // addLast(1);
+        // addLast(2);
+        // addLast(3);
+        // addLast(4);
+        // addLast(5);
+
+        // System.out.println("Sum of Node: " + sumOfNodes());
+        // System.out.println("Count: " + count());
+
     }
 }
