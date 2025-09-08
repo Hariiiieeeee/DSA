@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 class Node{
     int data;
     Node next;
@@ -119,6 +121,20 @@ public class LinkedList {
         head = prev;
     }
 
+    static boolean containsLoop(){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast) return true;
+        }
+
+        return false;
+    }
+
     static void middle(){
         Node fast = head;
         Node slow = head;
@@ -180,38 +196,105 @@ public class LinkedList {
         System.out.println("Max: " + max);
     }
 
+    static void removeDuplicatesUnsorted(){
+        if(head == null || head.next == null) return;
+
+        HashSet<Integer> set = new HashSet<>();
+
+        Node current = head;
+        while(current != null){
+            set.add(current.data);
+            current = current.next;
+        }
+
+        current = head;
+        for(int i: set){
+            current.next.data = i;
+            current = current.next;
+        }
+
+        current.next = null;
+        head = head.next;
+        
+        printList();
+    }
+
+    static void removeDuplicates(){
+        Node current = head;
+
+        while(current.next != null){
+            int val = current.data;
+            Node temp = current.next;
+
+            while(temp != null && temp.data == val){
+                temp = temp.next;
+            }
+
+            current.next = temp;
+            current = current.next;
+
+        }
+    }
+
+    static void swapOddEven(){
+        if(head == null || head.next == null){
+            return;
+        }
+
+        Node current = head;
+        head = head.next;
+
+        while(current != null && current.next!= null){
+            Node temp = current.next;
+            current.next = current.next.next;
+            temp.next = current;
+
+            
+            current = current.next;
+        }
+    }
+
     public static void main(String[] args) {
         addFirst(1);
+        // addLast(2);
+        // addLast(4);
+        // printList();
+        // System.out.println();
+
+        // insert(2, 3);
+        // printList();
+        // System.out.println();
+
+        // delete(2);
+        // printList();
+        // System.out.println();
+
+        // reverse();
+        // printList();
+        // System.out.println();
+
+        // insert(1, 2);
+        // middle();
+
+        // minMax();
+
+        
+        addLast(2);
         addLast(2);
         addLast(4);
-        printList();
-        System.out.println();
+        addLast(5);
 
-        insert(2, 3);
-        printList();
-        System.out.println();
+        removeDuplicatesUnsorted();
+        // printList();
 
-        delete(2);
-        printList();
-        System.out.println();
-
-        reverse();
-        printList();
-        System.out.println();
-
-        insert(1, 2);
-        middle();
-
-        minMax();
-
-        // addLast(1);
-        // addLast(2);
-        // addLast(3);
-        // addLast(4);
-        // addLast(5);
+        // swapOddEven(); 
 
         // System.out.println("Sum of Node: " + sumOfNodes());
         // System.out.println("Count: " + count());
+
+        // System.out.println((containsLoop())? "Contains Loop" : "No loop");
+
+
 
     }
 }
