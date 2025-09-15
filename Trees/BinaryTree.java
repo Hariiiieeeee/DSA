@@ -75,6 +75,8 @@ public class BinaryTree {
         }
 
     }
+    
+    void array
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
 
